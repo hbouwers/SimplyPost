@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PostService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimplyPost.Data\SimplyPost.Data.csproj">
+      <Project>{c7abb611-abc3-4a36-8ef9-39deb9b082a5}</Project>
+      <Name>SimplyPost.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimplyPost.Models\SimplyPost.Models.csproj">
+      <Project>{84ea0b30-8d19-49d3-a4e7-5c6df4b46d97}</Project>
+      <Name>SimplyPost.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
