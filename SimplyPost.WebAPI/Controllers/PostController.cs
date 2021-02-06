@@ -13,6 +13,12 @@ namespace SimplyPost.WebAPI.Controllers
     [Authorize]
     public class PostController : ApiController
     {
+        private PostService CreatePostService()
+        {
+            var author = Guid.Parse(User.Identity.GetUserId());
+            var postService = new PostService(author);
+            return postService;
+        }
 
         public IHttpActionResult Get() 
         {
@@ -33,11 +39,12 @@ namespace SimplyPost.WebAPI.Controllers
 
             return Ok();
         }
-        private PostService CreatePostService()
+
+        public IHttpActionResult GetPostById(int id)
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var postService = new PostService(userId);
-            return postService;
+            PostService postService = CreatePostService();
+            var post = postService.GetPostById(id);
+            return Ok(post);
         }
     }
 }
