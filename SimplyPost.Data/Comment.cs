@@ -22,9 +22,6 @@ namespace SimplyPost.Data
         public int PostId { get; set; }
         public virtual Post Post { get; set; }
 
-        [ForeignKey(nameof(Replies))]
-        public int ReplyId { get; set; }
-
         public virtual List<Reply> Replies { get; set; }
     }
 }
