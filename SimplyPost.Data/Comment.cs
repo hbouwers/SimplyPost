@@ -17,15 +17,14 @@ namespace SimplyPost.Data
         [Required]
         public Guid Author { get; set; }
 
-        [ForeignKey(nameof(Reply))]
+        [Required]
+        [ForeignKey(nameof(Post))]
+        public int PostId { get; set; }
+        public virtual Post Post { get; set; }
+
+        [ForeignKey(nameof(Replies))]
         public int ReplyId { get; set; }
 
-        public virtual Reply Replies { get; set; }
-    }
-
-    public class Reply : Comment
-    {
-        [Key]
-        public int CommentId { get; set; }
+        public virtual List<Reply> Replies { get; set; }
     }
 }
